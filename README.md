@@ -35,3 +35,9 @@
   - 範例如：
     - `全文檢索結果.xlsx`
     - `政府採購標案彙整.xlsx`
+   
+## 👤 作者
+
+- Chen-Yi Wu
+- GitHub: [wstone302/GovTenderSpidar](https://github.com/wstone302/GovTenderSpidar)
+
