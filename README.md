@@ -9,6 +9,8 @@
    - 前往 [Anaconda 官方網站](https://www.anaconda.com/products/distribution) 下載並安裝 Anaconda（圖示為綠色蛇形圖示）。
    - 資料夾裡的 `Anaconda3-2023.07-Windows-x86_64.exe` 為 Anaconda 安裝檔，也可雙擊此檔按安裝，若已安裝可跳過此步驟。
    - 安裝完成後，即可使用 `conda` 指令進行虛擬環境與套件管理。
+3. **關鍵字設定**
+   - 程式會根據使用者在 `spidar.py` 中設定的關鍵字進行篩選與擷取標案資料，**若需擴充或變更關鍵字，可直接編輯 spidar.py 中對應的 keywords1 與 keywords2 變數內容；及 fulltext_spider.py 中對應的 keywords。**
 
 ## 二、第一次執行
 
