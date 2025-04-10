@@ -6,10 +6,7 @@ import pandas as pd
 import time
 
 # 關鍵字與對應產業分類
-keywords = [
-    "EZ08011 測繪業",
-    "F113030 精密儀器批發業"
-]
+keywords = []
 
 driver = webdriver.Chrome()
 wait = WebDriverWait(driver, 15)
