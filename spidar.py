@@ -9,16 +9,9 @@ from openpyxl import load_workbook
 from openpyxl.styles import Font
 
 #  keywords list
-keywords1 = [
-    "測量", "測繪", "檢測", "地形", "地籍圖", "地籍", "套疊", "套繪", "圖資", "水深", "淤積", "海床",
-    "空拍", "航拍", "無人機", "飛行載具", "UAV", "UAS", "圖根點", "監測", "斷面", "掃描", "點雲",
-    "LIDAR", "BIM", "光達", "沉陷", "水庫", "雷射", "疏濬", "疏浚", "地形收方", "排水", "電塔", "湖",
-    "多音束", "單音束", "SBES", "離岸風電", "透地雷達", "聲納", "數值地形", "建模"
-]
+keywords1 = []
 
-keywords2 = [
-    "經濟部水利署北區水資源分署", "大觀發電廠", "萬大發電廠", "第三河川分署"
-]
+keywords2 = []
 
 driver = webdriver.Chrome()
 wait = WebDriverWait(driver, 15)
