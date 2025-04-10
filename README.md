@@ -23,7 +23,7 @@
 
 2. **執行主程式**
    - **雙擊 `script.bat`**
-     - 程式將自動執行 `spidar.py` 並完成資料處理。
+     - 程式將自動執行 `spidar.py` 及 `fulltext_spider.py` 並完成資料處理。
 
 ## 三、後續使用
 
