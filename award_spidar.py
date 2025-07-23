@@ -144,10 +144,10 @@ def crawl_detail_page(driver):
 
 def main():
     # Excel 路徑與起始欄
-    excel_path = "你的檔案路徑.xlsx"
+    excel_path = "114年採購網標案投標評估彙整表 (20250722).xlsx"
     df = pd.read_excel(excel_path)
     wb = load_workbook(excel_path)
-    ws = wb.active
+    ws = wb["採購網標案彙整表-1"]
 
     # 欄位對應
     start_col = 19  # S 欄
@@ -173,6 +173,18 @@ def main():
         kw = str(row['案名']).strip()
         print(f"\n🔍 查詢案名：{kw}")
         try:
+            # 1. 一律直接回首頁，不用 back()
+            driver.get("https://web.pcc.gov.tw/prkms/tender/common/bulletion/indexBulletion")
+            time.sleep(1)
+            # 2. 勾選只要「決標」沒被勾就點，招標有勾就取消
+            checkbox = wait.until(EC.element_to_be_clickable((By.ID, "scop1")))
+            if checkbox.is_selected():
+                checkbox.click()
+            checkbox = wait.until(EC.element_to_be_clickable((By.ID, "scop2")))
+            if not checkbox.is_selected():
+                checkbox.click()
+
+            # 3. 搜尋輸入
             input_box = wait.until(EC.presence_of_element_located((By.NAME, "querySentence")))
             input_box.clear()
             input_box.send_keys(kw)
@@ -199,8 +211,6 @@ def main():
                 details = crawl_detail_page(driver)
                 for k, key in enumerate(detail_keys):
                     ws.cell(row=idx+2, column=start_col+k, value=details.get(key, None))
-                driver.back()
-                wait.until(EC.visibility_of_element_located((By.XPATH, "//table[@id='bulletion']/tbody/tr")))
             else:
                 print(f"❗ 查無資料：{kw}")
         except Exception as e:
