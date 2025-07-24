@@ -171,6 +171,10 @@ def main():
 
     for idx, row in df.iterrows():
         kw = str(row['案名']).strip()
+        if kw.endswith("(開口合約)"):
+            kw = kw[:-6].strip()
+        elif kw.endswith("開口合約"):
+            kw = kw[:-4].strip()
         print(f"\n🔍 查詢案名：{kw}")
         try:
             # 1. 一律直接回首頁，不用 back()
